@@ -17,8 +17,8 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  username: iwf # role previously added
-  password: "IWF**321" # variable previously added
+  username: test # role previously added
+  password: "test2545" # variable previously added
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
