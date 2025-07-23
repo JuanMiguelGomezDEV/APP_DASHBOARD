@@ -1,38 +1,28 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h2 class="mb-4 text-center">Sign up</h2>
+<div class="glass-panel ms-5" style="min-width: 350px; max-width: 400px;">
+  <h2 class="mb-4 fw-bold text-white text-nowrap">Registrarse</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "needs-validation", novalidate: true }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="mb-3">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
-        </div>
-
-        <div class="mb-3">
-          <%= f.label :password, class: "form-label" %>
-          <% if @minimum_password_length %>
-            <small class="form-text text-muted">
-              (<%= @minimum_password_length %> characters minimum)
-            </small>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true %>
-        </div>
-
-        <div class="mb-4">
-          <%= f.label :password_confirmation, class: "form-label" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true %>
-        </div>
-
-        <div class="d-grid">
-          <%= f.submit "Sign up", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="mb-4">
+      <%= f.label :email, "Correo electrónico", class: "form-label text-white" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", required: true %>
     </div>
+
+    <div class="mb-4">
+      <%= f.label :password, "Contraseña", class: "form-label text-white" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password_confirmation, "Confirmar contraseña", class: "form-label text-white" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <div class="d-grid mb-3">
+      <%= f.submit "Registrarse", class: "btn btn-primary btn-lg" %>
+    </div>
+  <% end %>
+
+  <div class="text-white mt-3">
+    <%= link_to "¿Ya tienes una cuenta? Inicia sesión", new_session_path(resource_name), class: "text-white d-block" %>
   </div>
 </div>
-
-
-<%= render "devise/shared/links" %>
