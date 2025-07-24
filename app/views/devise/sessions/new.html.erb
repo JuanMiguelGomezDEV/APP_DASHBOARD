@@ -1,34 +1,58 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h2 class="mb-4 text-center">Log in</h2>
+
+
+<div class="d-flex vh-100">
+  <!-- Imagen 60% -->
+  <div class="w-60 d-none d-md-block"
+       style="background-image: url('https://images.unsplash.com/photo-1670121180583-39ab653a071c?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNoaXBwaW5nJTIwcG9ydHxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');
+              background-size: cover;
+              background-position: center;">
+  </div>
+
+  <!-- Formulario 40% con efecto cristal -->
+  <div class="w-100 w-md-40 d-flex align-items-center justify-content-center">
+    <div class="auth-glass login">
+      <h2 class="mb-4 fw-bold text-white text-center text-nowrap">Iniciar sesión</h2>
+
+      <div class="greeting-banner d-none d-md-flex">
+  <div class="greeting-text text-white text-center">
+    <span id="rotatingGreeting" class="fs-2 fw-semibold"></span>
+  </div>
+</div>
+
+
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation", novalidate: true }) do |f| %>
 
-        <div class="mb-3">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", required: true %>
+        <div class="mb-4">
+          <%= f.label :email, "Correo electrónico", class: "form-label text-white" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", required: true %>
         </div>
 
-        <div class="mb-3">
-          <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, autocomplete: "current-password", class: "form-control", required: true %>
+        <div class="mb-4">
+          <%= f.label :password, "Contraseña", class: "form-label text-white" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg", required: true %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="form-check mb-3">
+          <div class="form-check mb-4">
             <%= f.check_box :remember_me, class: "form-check-input" %>
-            <%= f.label :remember_me, class: "form-check-label" %>
+            <%= f.label :remember_me, "Recuérdame", class: "form-check-label text-white" %>
           </div>
         <% end %>
 
-        <div class="d-grid">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
+        <div class="d-grid mb-3">
+          <%= f.submit "Ingresar", class: "btn btn-primary btn-lg" %>
         </div>
 
       <% end %>
+
+      <div class="text-center mt-3">
+        <%= link_to "¿Olvidaste tu contraseña?", new_password_path(resource_name), class: "text-white d-block mb-2" %>
+        <%= link_to "Crear cuenta nueva", new_registration_path(resource_name), class: "text-white" %>
+      </div>
     </div>
   </div>
 </div>
+
 
 <%= render "devise/shared/links" %>

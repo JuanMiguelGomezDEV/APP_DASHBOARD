@@ -1,16 +1,21 @@
-<h2>Forgot your password?</h2>
+<div class="auth-glass">
+  <h2 class="text-center mb-4">Recuperar contraseña</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="mb-3">
+      <%= f.label :email, 'Correo electrónico', class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="d-grid gap-2">
+      <%= f.submit "Enviar instrucciones", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <hr class="my-4" />
+
+  <div class="text-center">
+    <%= link_to "Volver a iniciar sesión", new_session_path(resource_name), class: "text-light text-decoration-underline" %>
+
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
