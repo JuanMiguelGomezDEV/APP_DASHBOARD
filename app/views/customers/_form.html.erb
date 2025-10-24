@@ -1,0 +1,18 @@
+<%= form_with(model: @customer, local: true, class: "card shadow-sm border-0 p-4 mx-auto mt-4", style: "max-width: 600px;") do |f| %>
+  <h4 class="mb-4 text-center text-primary fw-bold">Registro de Cliente</h4>
+
+  <div class="mb-3">
+    <%= f.label :name, "Nombre", class: "form-label fw-semibold" %>
+    <%= f.text_field :name, required: true, class: "form-control form-control-lg", placeholder: "Ingresa el nombre del cliente" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :guid, "GUID", class: "form-label fw-semibold" %>
+    <%= f.text_field :guid, required: true, class: "form-control form-control-lg", placeholder: "Identificador único (GUID)" %>
+    <small class="text-muted">Ejemplo: 123e4567-e89b-12d3-a456-426614174000</small>
+  </div>
+
+  <div class="d-grid mt-4">
+    <%= f.submit "Guardar Cliente", class: "btn btn-primary btn-lg shadow-sm" %>
+  </div>
+<% end %>

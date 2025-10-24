@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
-  # Solo permitir navegadores modernos
-  allow_browser versions: :modern
-
-  # Obliga a estar autenticado en todo el sitio
-  before_action :authenticate_user!
-
-  # Redirección después del logout
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
+  helper_method :current_user
+ 
+  private
+  def current_user
+    @current_user ||= User.first
+  end
+ 
+  def require_user!
+    redirect_to new_user_path, alert: "Crea un usuario primero" unless current_user
   end
 end

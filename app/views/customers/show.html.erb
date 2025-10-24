@@ -1,0 +1,7 @@
+<h1><%= @customer.name %></h1>
+<p><strong>GUID:</strong> <%= @customer.guid %></p>
+ 
+<p>
+<%= link_to "Editar", edit_customer_path(@customer) %> |
+<%= link_to "Volver", customers_path %>
+</p>

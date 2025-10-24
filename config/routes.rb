@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "customers/index"
   # Página principal del sitio
   root "dashboard#index"
 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
+resources :customers
 
   # Ruta de health check
   get "up" => "rails/health#show", as: :rails_health_check
